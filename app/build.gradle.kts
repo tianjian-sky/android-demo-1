@@ -53,4 +53,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation("com.google.android.flexbox:flexbox:3.0.0") // Android 原生 XML 布局里没有 Flexbox 容器——FlexboxLayout 不是系统组件，而是 Google 官方支持库提供的。你需要在 build.gradle 里加依赖才能用。
 }

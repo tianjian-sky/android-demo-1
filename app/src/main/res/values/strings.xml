@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">demo2</string>
+    <string name="button1Id">Button 1</string>
+    <string name="image1Desc">sample image</string>
+    <string name="radiobutton1Text">RadioButton</string>
+    <string name="radiobutton2Text">RadioButton</string>
+    <string name="radiobutton3Text">RadioButton</string>
+    <string name="checkbox1text">CheckBox</string>
+    <string name="checkbox2text">CheckBox</string>
+    <string name="checkbox3text">CheckBox</string>
 </resources>
