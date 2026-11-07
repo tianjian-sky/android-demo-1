@@ -1,25 +1,25 @@
 package com.example.demo2
 
-import android.graphics.Color as Color0
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.ComponentActivity
-import androidx.activity.SystemBarStyle
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.fragment.app.FragmentActivity
+import com.example.demo2.databinding.ABinding
 import com.example.demo2.ui.theme.Demo2Theme
-import androidx.compose.ui.graphics.Color
+import com.example.demo2.MyFragment
 
-class MainActivity : ComponentActivity() {
+
+//class MainActivity : ComponentActivity() {
+// 为了使用Fragment，需要FragmentManager，需要FragmentActivity
+class MainActivity : FragmentActivity() {
+    private lateinit var binding: ABinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        var fm = supportFragmentManager
         super.onCreate(savedInstanceState)
         // SystemBarStyle 电量，wifi导航栏背景色
 //        enableEdgeToEdge(SystemBarStyle.light(Color0.parseColor("#ff0000"), Color0.parseColor("#ffff00")))
@@ -33,9 +33,32 @@ class MainActivity : ComponentActivity() {
 //                }
 //            }
 //        }
-        setContentView(R.layout.a) // 引入xml
+//        R.layout中的R是哪个类
+//        R 是 Android 编译时自动生成的资源索引类，全名是 你的包名.R（比如 com.example.myapp.R）。它不属于任何你手写的类，而是 aapt/aapt2 在构建时根据 res/ 目录自动生成的。
+//        setContentView(R.layout.a) // 引入xml
+        binding = ABinding.inflate(getLayoutInflater())
+        val view: View? = binding.getRoot()
+        setContentView(view)
+        var button = binding.button1
+        println("has onclick listener:" + button.hasOnClickListeners())
+//        if (!button.hasOnClickListeners()) {
+            button.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View?) {
+//                    print("clicked")
+                    Log.d("TEST", "clicked")
+                    var frag = MyFragment()
+//                    fm.commit {
+//                        setReorderingAllowed(true)
+//                        add(R.id.fragment_container, frag)
+//                    }
 
-//        val title = findViewById<TextView>(R.id.tv_title)
+
+                }
+            })
+//        }
+//        binding.button1.onClick
+
+
 //        val button = findViewById<Button>(R.id.btn_click)
     }
 }

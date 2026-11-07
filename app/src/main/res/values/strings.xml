@@ -8,4 +8,7 @@
     <string name="checkbox1text">CheckBox</string>
     <string name="checkbox2text">CheckBox</string>
     <string name="checkbox3text">CheckBox</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_navigation">导航</string>
 </resources>
