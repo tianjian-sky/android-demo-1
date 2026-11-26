@@ -64,8 +64,13 @@ dependencies {
     // 如需向您的项目添加 AndroidX Fragment 库，请在应用的 build.gradle 文件中添加以下依赖项：
     val fragment_version = "1.9.1"
     // Java language implementation
+
+    //commit {} is a Kotlin extension function provided by Fragment KTX, used to replace the lengthy beginTransaction().commit() call.
+    // 使用fragmentManager.commit 扩展方法 需要引入androidx.fragment.app.commit和fragment-ktx依赖.
+    // fragment-ktx，已经被合并入androidx.fragment:fragment
     implementation("androidx.fragment:fragment:$fragment_version")
     // Kotlin
+    // fragment-ktx，已经被合并入androidx.fragment:fragment
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
     // Compose
     implementation("androidx.fragment:fragment-compose:$fragment_version")

@@ -14,6 +14,11 @@ import com.example.demo2.ui.theme.Demo2Theme
 import com.example.demo2.MyFragment
 
 
+//commit {} is a Kotlin extension function provided by Fragment KTX, used to replace the lengthy beginTransaction().commit() call.
+// 使用fragmentManager.commit 扩展方法 需要引入androidx.fragment.app.commit和fragment-ktx依赖.
+// fragment-ktx，已经被合并入androidx.fragment:fragment
+import androidx.fragment.app.commit
+
 //class MainActivity : ComponentActivity() {
 // 为了使用Fragment，需要FragmentManager，需要FragmentActivity
 class MainActivity : FragmentActivity() {
@@ -47,10 +52,10 @@ class MainActivity : FragmentActivity() {
 //                    print("clicked")
                     Log.d("TEST", "clicked")
                     var frag = MyFragment()
-//                    fm.commit {
-//                        setReorderingAllowed(true)
-//                        add(R.id.fragment_container, frag)
-//                    }
+                    fm.commit {
+                        setReorderingAllowed(true)
+                        add(R.id.fragment_container, frag)
+                    }
 
 
                 }
